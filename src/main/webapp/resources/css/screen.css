@@ -19,17 +19,16 @@ input{
 	height: 50px;
 	border-bottom: 3px solid #c0c0c0;
 	background: #B41F16;
-	text-align: left;
-	font-size: 40px;
-	font-family: 'Exo 2', sans-serif;
+	text-align: center;
+	font-size: 3em;
+	font-family: 'Abril Fatface', cursive;
 	color: #f0f0f0;
-	margin: 0;
 	margin-bottom: 10px;
-	padding: 0;
+	padding: 10px;
 }
 
 #header h1 {
-	padding-top: 24px;
+	
 	font-size: 250%;
 }
 
@@ -42,9 +41,6 @@ input{
 	width: 960px;
 	margin-left: auto;
 	margin-right: auto;
-	border-right: solid 2px #a0a0a0;
-	border-bottom: solid 2px #a0a0a0;
-}
 
 #sidebar {
 	float: right;
