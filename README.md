@@ -1,4 +1,5 @@
 mvn jetty:run
 
-http://localhost:8080/searchapp/spring/
-Enter b in the textbox
+<a>http://localhost:8080/searchapp/spring/</a>
+
+<p>Enter b in the textbox</p>
