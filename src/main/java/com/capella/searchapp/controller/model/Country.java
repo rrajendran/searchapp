@@ -4,14 +4,17 @@ public class Country implements DomainObject {
 	private static final long serialVersionUID = 1L;
 	public static final String OBJECT_KEY = "COUNTRY";
 	String name;
-	String language;
+	String abbrevation;
 
 	public Country() {
 	}
 
-	public Country(String name, String language) {
+	
+
+	public Country(String name, String abbrevation) {
+		super();
 		this.name = name;
-		this.language = language;
+		this.abbrevation = abbrevation;
 	}
 
 	public String getName() {
@@ -22,12 +25,12 @@ public class Country implements DomainObject {
 		this.name = name;
 	}
 
-	public String getLanguage() {
-		return language;
+	public String getAbbrevation() {
+		return abbrevation;
 	}
 
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setAbbrevation(String abbrevation) {
+		this.abbrevation = abbrevation;
 	}
 
 	@Override
@@ -40,9 +43,13 @@ public class Country implements DomainObject {
 		return OBJECT_KEY;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Country [name=" + name + ", language=" + language + "]";
+		return "Country [name=" + name + ", abbrevation=" + abbrevation + "]";
 	}
+
+ 
 
 }

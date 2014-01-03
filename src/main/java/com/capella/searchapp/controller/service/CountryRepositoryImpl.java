@@ -1,10 +1,14 @@
 package com.capella.searchapp.controller.service;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import org.apache.commons.io.IOUtils;
+import org.hsqldb.lib.FileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,15 +59,13 @@ public class CountryRepositoryImpl implements CountryRepository<Country> {
 		return users;
 	}
 
-	public void init() {
-		Locale[] locales = Locale.getAvailableLocales();
-		for (Locale locale : locales) {
-			Country country = new Country(locale.getDisplayCountry()
-					.toLowerCase(), locale.getDisplayLanguage().toLowerCase());
+	public void init() throws IOException {
+		InputStream ins = CountryRepositoryImpl.class.getResourceAsStream("/countries.txt");
+		List<String> readLines = IOUtils.readLines(ins);
+		for (String countrystr : readLines) {
+			Country country = new Country(countrystr.toLowerCase(),countrystr);
 			put(country);
-
 		}
-		System.out.println(list());
 	}
 
 	public static void main(String[] args) {
