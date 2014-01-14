@@ -12,7 +12,7 @@ $(document).ready(function() {
 				success : function(data) {
 					if(data != null){
 						$.each(data, function(i, json) {
-							$("#result").append(json.name).append("</br>");
+							$("#result").append(json.name).append("=>" + json.language).append("</br>");
 						});
 						
 					}
