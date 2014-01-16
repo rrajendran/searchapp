@@ -12,7 +12,15 @@
 <script src="resources/scripts/script.js"></script>
 </head>
 <body>
-	<%@include file="menu.jsp" %>
+	<div id='cssmenu'>
+		<ul>
+			<li  class='active'><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/home'><span>Contracts</span></a></li>
+			<li ><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/agents'><span>Agents</span></a></li>
+			<li><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/invoice'><span>Invoice</span></a></li>
+			<li><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/expenses'><span>Expense</span></a></li>
+			<li class='last'><a href='#'><span>Contact</span></a></li>
+		</ul>
+	</div>
 	<div id="page">
 
 		<div class="ui-widget" style="width: 30%; float: left">
