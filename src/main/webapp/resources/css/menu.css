@@ -5,6 +5,16 @@ body{
 	 font-family: 'Capriola', sans-serif;
 	 font-size: 14px;
 }
+
+button{
+	font-family: 'Exo 2', sans-serif;
+	font-size: 14px larger;
+	padding: 5px;
+}
+table{
+	font-family: 'Exo 2', sans-serif;
+	font-size: 14px larger; 
+}
 /* Let's import the lovely google font, please keep this line at the top of your stylesheet */
 /* Menu CSS */
 #cssmenu,

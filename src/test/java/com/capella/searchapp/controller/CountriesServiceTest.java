@@ -2,6 +2,7 @@ package com.capella.searchapp.controller;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,24 +42,49 @@ public class CountriesServiceTest {
 	@Test
 	public void insertContract(){
 		Contract contract = new Contract();
-		contract.setContractId(1l);
+		contract.setContractId(new ObjectId());
 		contract.setEndDate(DateTime.now().plusMonths(3));
 		contract.setParentContract(null);
 		contract.setStartDate(DateTime.now());
+		Agency agency = createAgency();
+		contract.setAgencyId(agency.getId() );
+		Client client = createClient();
+		contract.setClientId(client.getId());
+		mongoTemplate.insert(contract, "contract");
+	}
+	
+	public Agency createAgency(){
 		Agency agency = new Agency();
+		agency.setId(new ObjectId());
 		Address address = new Address();
 		address.setPostCode("M4 7EP");
 		agency.setAddress(address );
-		Contact contact = new Contact();
-		contact.setEmailId("michael.hall@harveynash.com");
-		agency.setContact(contact );
+		Contact contact = createContact();
+		agency.setContactId(contact.getId() );
 		agency.setName("Harvey Nash");
-		contract.setAgency(agency );
+		mongoTemplate.insert(agency, "agency");
+		return agency;
+	}
+
+	private Contact createContact() {
+		Contact contact = new Contact();
+		contact.setFirstName("Michael");
+		contact.setLastName("Hall");
+		contact.setMobilePhone("07769250816");
+		contact.setEmailId("michael.hall@harveynash.com");
+		mongoTemplate.insert(contact, "contact");
+		return contact;
+	}
+	
+	public Client createClient(){
 		Client client = new Client();
 		client.setName("boohoo.com");
+		Address address = new Address();
+		address.setPostCode("M4 7EP");
 		client.setAddress(address);
-		client.setContact(contact);
-		contract.setClient(client );
-		mongoTemplate.insert(contract, "contract");
+		Contact contact = createContact();
+		client.setContactId(contact.getId());
+		mongoTemplate.insert(client, "client");
+		return client;
 	}
 }

@@ -22,11 +22,36 @@
 		</ul>
 	</div>
 	<div id="page">
-
-		<div class="ui-widget" style="width: 30%; float: left">
-			Search country <input id="search">
-			<div id="result"></div>
-		</div>
+		<table>
+			<tr>
+				<td>Start Date</td>
+			</tr>
+			<tr>
+				<td><input name="startDate" id="startDate" type="text"/></td>
+			</tr>
+			<tr>
+				<td>End Date</td>
+			</tr>
+			<tr>
+				<td><input name="endDate" id="endDate" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Agency</td>
+			</tr>
+			<tr>
+				<td><input name="agency" id="agency" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Client</td>
+			</tr>
+			<tr>
+				<td><input name="client" id="client" type="text"/></td>
+			</tr>
+			<tr>
+				<td><button value="Create">Create</button></td>
+			</tr>
+		</table>
+		
 		<div style="width: 30%; font-size: 5em; float: right">${pageViews }
 			views</div>
 	</div>

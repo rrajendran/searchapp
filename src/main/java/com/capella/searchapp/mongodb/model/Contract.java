@@ -1,5 +1,6 @@
 package com.capella.searchapp.mongodb.model;
 
+import org.bson.types.ObjectId;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -7,16 +8,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Contract {
 	@Id
-	private Long contractId;
+	private ObjectId contractId;
 	private DateTime startDate;
 	private DateTime endDate;
 	private Contract parentContract;
-	private Agency agency;
-	private Client client;
-	public Long getContractId() {
+	private ObjectId agencyId;
+	private ObjectId clientId;
+	
+	public ObjectId getContractId() {
 		return contractId;
 	}
-	public void setContractId(Long contractId) {
+	public void setContractId(ObjectId contractId) {
 		this.contractId = contractId;
 	}
 	public DateTime getStartDate() {
@@ -37,25 +39,16 @@ public class Contract {
 	public void setParentContract(Contract parentContract) {
 		this.parentContract = parentContract;
 	}
-	public Agency getAgency() {
-		return agency;
+	public ObjectId getAgencyId() {
+		return agencyId;
 	}
-	public void setAgency(Agency agency) {
-		this.agency = agency;
+	public void setAgencyId(ObjectId agencyId) {
+		this.agencyId = agencyId;
 	}
-	public Client getClient() {
-		return client;
+	public ObjectId getClientId() {
+		return clientId;
 	}
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClientId(ObjectId clientId) {
+		this.clientId = clientId;
 	}
-	@Override
-	public String toString() {
-		return "Contract [contractId=" + contractId + ", startDate="
-				+ startDate + ", endDate=" + endDate + ", parentContract="
-				+ parentContract + ", agency=" + agency + ", client=" + client
-				+ "]";
-	}
-	
-
 }
