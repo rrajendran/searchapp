@@ -22,6 +22,7 @@
 		</ul>
 	</div>
 	<div id="page">
+		 <jsp:include page="search.jsp"></jsp:include>
 		<table>
 			<tr>
 				<td>Start Date</td>
@@ -51,9 +52,6 @@
 				<td><button value="Create">Create</button></td>
 			</tr>
 		</table>
-		
-		<div style="width: 30%; font-size: 5em; float: right">${pageViews }
-			views</div>
 	</div>
 </body>
 </html>
