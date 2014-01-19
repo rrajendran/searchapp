@@ -1,57 +1,107 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page session="false"%>
 <!doctype html>
 <html>
 <head>
 <link rel='stylesheet' type='text/css' href='resources/css/menu.css' />
+<link rel='stylesheet' type='text/css'
+	href='resources/css/jquery.dataTables_themeroller.css' />
+<link rel='stylesheet' type='text/css'
+	href='resources/css/jquery.dataTables.css' />
 <link href='http://fonts.googleapis.com/css?family=Abril+Fatface'
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Exo+2'
 	rel='stylesheet' type='text/css'>
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+<script type="text/javascript" language="javascript" src="resources/scripts/jquery.dataTables.js"></script>
 <script src="resources/scripts/script.js"></script>
 </head>
 <body>
 	<div id='cssmenu'>
 		<ul>
-			<li  class='active'><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/home'><span>Contracts</span></a></li>
-			<li ><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/agents'><span>Agents</span></a></li>
-			<li><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/invoice'><span>Invoice</span></a></li>
-			<li><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/expenses'><span>Expense</span></a></li>
+			<li class='active'><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/spring/home'><span>Contracts</span></a></li>
+			<li><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/spring/agents'><span>Agents</span></a></li>
+			<li><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/spring/invoice'><span>Invoice</span></a></li>
+			<li><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/spring/expenses'><span>Expense</span></a></li>
 			<li class='last'><a href='#'><span>Contact</span></a></li>
 		</ul>
 	</div>
 	<div id="page">
-		 <jsp:include page="search.jsp"></jsp:include>
-		<table>
-			<tr>
-				<td>Start Date</td>
-			</tr>
-			<tr>
-				<td><input name="startDate" id="startDate" type="text"/></td>
-			</tr>
-			<tr>
-				<td>End Date</td>
-			</tr>
-			<tr>
-				<td><input name="endDate" id="endDate" type="text"/></td>
-			</tr>
-			<tr>
-				<td>Agency</td>
-			</tr>
-			<tr>
-				<td><input name="agency" id="agency" type="text"/></td>
-			</tr>
-			<tr>
-				<td>Client</td>
-			</tr>
-			<tr>
-				<td><input name="client" id="client" type="text"/></td>
-			</tr>
-			<tr>
-				<td><button value="Create">Create</button></td>
-			</tr>
-		</table>
+		<jsp:include page="search.jsp"></jsp:include>
+		<form:form method="POST" commandName="agency"
+			action="/searchapp/spring/agency/save">
+			<table class="tableclass">
+				<tr>
+					<td><form:label path="name">Name</form:label></td>
+					<td><form:input path="name" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="address1">Address 1</form:label></td>
+					<td><form:textarea path="address1"></form:textarea></td>
+				</tr>
+				<tr>
+					<td><form:label path="address2">Address 3</form:label></td>
+					<td><form:textarea path="address2"></form:textarea></td>
+				</tr>
+				<tr>
+					<td><form:label path="city">City</form:label></td>
+					<td><form:input path="city" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="town">Town</form:label></td>
+					<td><form:input path="town" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="country">Country</form:label></td>
+					<td><form:input path="country" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="postCode">Post Code</form:label></td>
+					<td><form:input path="postCode" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="mobile">Mobile</form:label></td>
+					<td><form:input path="mobile" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="telephone">Telephone</form:label></td>
+					<td><form:input path="telephone" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="emailId">Email Id</form:label></td>
+					<td><form:input path="emailId" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Submit" /></td>
+				</tr>
+			</table>
+		</form:form>
+	</div>
+	<div id="dynamic">
+			<table cellpadding="0" cellspacing="0" border="0" class="display" id="agencyTable">
+				<thead>
+					<tr>
+						<th width="20%">Name</th>
+						<th width="25%">Email Id</th>
+						<th width="25%">Mobile</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+				<tfoot>
+					<tr>
+						<th width="20%">Name</th>
+						<th width="25%">Email Id</th>
+						<th width="25%">Mobile</th>
+					</tr>
+				</tfoot>
+			</table>
 	</div>
 </body>
 </html>

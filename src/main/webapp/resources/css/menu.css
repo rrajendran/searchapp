@@ -6,6 +6,9 @@ body{
 	 font-size: 14px;
 }
 
+#tableclass td label{
+	text-align: right;
+}
 button{
 	font-family: 'Exo 2', sans-serif;
 	font-size: 14px larger;
@@ -88,8 +91,17 @@ table{
 	font-weight: bold;
 }
 
-input , select, radio, option{
+input , select, radio, option, textarea{
 	height: 30px;
+	font-size: 18px;
+	font-style: normal;
+	font-stretch: condensed;
+}
+
+textarea{
+	font-family: 'Exo 2', sans-serif;
+	height: 30px;
+	width: 250px;
 	font-size: 18px;
 	font-style: normal;
 	font-stretch: condensed;

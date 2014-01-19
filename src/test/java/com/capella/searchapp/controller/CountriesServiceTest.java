@@ -18,7 +18,7 @@ public class CountriesServiceTest {
 	
 	@Test
 	public void test(){
-		Agency customer = new Agency("Ramesh", "Rajendran");
+		Agency customer = new Agency();
 		Agency save = customerRepository.save(customer );
 		System.out.println(save);
 	}

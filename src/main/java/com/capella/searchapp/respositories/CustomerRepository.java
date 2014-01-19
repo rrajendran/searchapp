@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.capella.searchapp.model.Agency;
 public interface CustomerRepository extends CrudRepository<Agency, Long> {
-    List<Agency> findByLastName(String lastName);
+    List<Agency> findByName(String name);
 }

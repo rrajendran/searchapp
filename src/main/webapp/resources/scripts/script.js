@@ -11,8 +11,9 @@ $(document).ready(function() {
 				dataType : "json",
 				success : function(data) {
 					if(data != null){
-						$.each(data, function(i, json) {
-							$("#result").append(json.firstName).append("=>" + json.lastName).append("</br>");
+						$.each(data.agencies, function(i, json) {
+							console.log(json);
+							$("#result").append(json.name).append("=>" + json.emailId).append("</br>");
 						});
 						
 					}
@@ -24,4 +25,16 @@ $(document).ready(function() {
 		}
 		
 	});
+	
+	
+	var oTable = $('#agencyTable').dataTable( {
+		"bProcessing": true,
+		"sAjaxSource": "/searchapp/spring/listAgencies/",
+		"aoColumns": [
+						{ "mData": "id" },
+						{ "mData": "name" },
+						{ "mData": "emailId" }
+					]
+	} );
+	
 });
