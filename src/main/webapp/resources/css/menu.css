@@ -4,8 +4,11 @@ body{
 	margin:0;
 	 font-family: 'Capriola', sans-serif;
 	 font-size: 14px;
+	 width: 2048px;
 }
-
+#tableclass tr td{
+	font-family: 'Exo 2', sans-serif;
+}
 #tableclass td label{
 	text-align: right;
 }
@@ -92,6 +95,7 @@ table{
 }
 
 input , select, radio, option, textarea{
+	font-family: 'Exo 2', sans-serif;
 	height: 30px;
 	font-size: 18px;
 	font-style: normal;
@@ -108,6 +112,7 @@ textarea{
 }
 
  select{
+ 	font-family: 'Exo 2', sans-serif;
 	height: 40px;
 	font-size: 20px;
 	font-style: normal;

@@ -40,7 +40,7 @@
 				action="/searchapp/spring/agency/save">
 				<table class="tableclass">
 					<tr>
-						<td><form:label path="name">Name</form:label></td>
+						<td><form:label path="name">Agency Name</form:label></td>
 						<td><form:input path="name" /></td>
 					</tr>
 					<tr>
