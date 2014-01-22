@@ -68,24 +68,24 @@ public class HomeController {
 		// return countryRepository.get(f);
 	}
 
-	@RequestMapping(value = "/listAgencies", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/listAgencies", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
-	public void listAgencies(@RequestParam(value="callback") String callBack, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
-
-		ObjectMapper objectMapper = new ObjectMapper();
+	public Map<String, List<Agency>> listAgencies() {
 		Map<String,List<Agency>> map = new HashMap<String, List<Agency>>();
 		map.put("agencies",  (List<Agency>) customerRepository.findAll());
-		response.setHeader("content-type", "application/json");
+		return map;
+		 	ObjectMapper objectMapper = new ObjectMapper();
+		 response.setHeader("content-type", "application/json");
 		String json = objectMapper.writeValueAsString(new JSONPObject(callBack,map));
 		response.getWriter().write(json);
-	}
+	}*/
 
-	@RequestMapping(value = "/listCompany", method = RequestMethod.GET)
+	@RequestMapping(value = "/listAgency", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody
-	Map<String, Company> listCompany() {
-		Map<String,Company> map = new HashMap<String,Company>();
-		map.put("company",  new Company(1l,"Capell Technologies Ltd"));
-		return map;
+	Object listAgency() {
+		Map<String,List<Agency>> map = new HashMap<String, List<Agency>>();
+		map.put("agencies",  (List<Agency>) customerRepository.findAll());
+		return (List<Agency>) customerRepository.findAll();
 	}
 }
