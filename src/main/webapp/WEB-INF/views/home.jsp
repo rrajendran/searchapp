@@ -13,11 +13,14 @@
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Exo+2'
 	rel='stylesheet' type='text/css'>
-<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-<script type="text/javascript" language="javascript" src="resources/scripts/jquery.dataTables.js"></script>
-<script src="resources/scripts/script.js"></script>
+<script  type="text/javascript"  src="http://yui.yahooapis.com/3.6.0/build/yui/yui.js"></script>
+<script  type="text/javascript"  src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+<script type="text/javascript" src="resources/scripts/jquery.dataTables.js"></script>
+<script  type="text/javascript"  src="resources/scripts/script.js"></script>
+<script  type="text/javascript"  src="resources/scripts/agency.js"></script>
 </head>
-<body>
+
+<body class="yui3-skin-sam">
 	<div id='cssmenu'>
 		<ul>
 			<li class='active'><a
@@ -32,76 +35,60 @@
 		</ul>
 	</div>
 	<div id="page">
-		<jsp:include page="search.jsp"></jsp:include>
-		<form:form method="POST" commandName="agency"
-			action="/searchapp/spring/agency/save">
-			<table class="tableclass">
-				<tr>
-					<td><form:label path="name">Name</form:label></td>
-					<td><form:input path="name" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="address1">Address 1</form:label></td>
-					<td><form:textarea path="address1"></form:textarea></td>
-				</tr>
-				<tr>
-					<td><form:label path="address2">Address 3</form:label></td>
-					<td><form:textarea path="address2"></form:textarea></td>
-				</tr>
-				<tr>
-					<td><form:label path="city">City</form:label></td>
-					<td><form:input path="city" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="town">Town</form:label></td>
-					<td><form:input path="town" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="country">Country</form:label></td>
-					<td><form:input path="country" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="postCode">Post Code</form:label></td>
-					<td><form:input path="postCode" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="mobile">Mobile</form:label></td>
-					<td><form:input path="mobile" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="telephone">Telephone</form:label></td>
-					<td><form:input path="telephone" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="emailId">Email Id</form:label></td>
-					<td><form:input path="emailId" /></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Submit" /></td>
-				</tr>
-			</table>
-		</form:form>
-	</div>
-	<div id="dynamic">
-			<table cellpadding="0" cellspacing="0" border="0" class="display" id="agencyTable">
-				<thead>
+		<div style="clear: left;width:30%;float:left">
+			<form:form method="POST" commandName="agency"
+				action="/searchapp/spring/agency/save">
+				<table class="tableclass">
 					<tr>
-						<th width="20%">Name</th>
-						<th width="25%">Email Id</th>
-						<th width="25%">Mobile</th>
+						<td><form:label path="name">Name</form:label></td>
+						<td><form:input path="name" /></td>
 					</tr>
-				</thead>
-				<tbody>
-					
-				</tbody>
-				<tfoot>
 					<tr>
-						<th width="20%">Name</th>
-						<th width="25%">Email Id</th>
-						<th width="25%">Mobile</th>
+						<td><form:label path="address1">Address 1</form:label></td>
+						<td><form:textarea path="address1"></form:textarea></td>
 					</tr>
-				</tfoot>
-			</table>
+					<tr>
+						<td><form:label path="address2">Address 3</form:label></td>
+						<td><form:textarea path="address2"></form:textarea></td>
+					</tr>
+					<tr>
+						<td><form:label path="city">City</form:label></td>
+						<td><form:input path="city" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="town">Town</form:label></td>
+						<td><form:input path="town" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="country">Country</form:label></td>
+						<td><form:input path="country" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="postCode">Post Code</form:label></td>
+						<td><form:input path="postCode" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="mobile">Mobile</form:label></td>
+						<td><form:input path="mobile" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="telephone">Telephone</form:label></td>
+						<td><form:input path="telephone" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="emailId">Email Id</form:label></td>
+						<td><form:input path="emailId" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="Submit" /></td>
+					</tr>
+				</table>
+			</form:form>
+		</div>
+		<div id="dynamic" style="clear: right;float:left">
+			<div id="agencies"></div>
+		</div>
 	</div>
+
 </body>
 </html>
