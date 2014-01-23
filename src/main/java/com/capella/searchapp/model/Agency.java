@@ -1,13 +1,21 @@
 package com.capella.searchapp.model;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
 public class Agency {
 	private long id;
+	@JsonBackReference
+	private List<Invoice> invoices;
 	private String name;
 	private String address1;
 	private String address2;
@@ -31,6 +39,14 @@ public class Agency {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	@OneToMany( mappedBy="agency")
+	public List<Invoice> getInvoices() {
+		return invoices;
+	}
+	public void setInvoices(List<Invoice> invoices) {
+		this.invoices = invoices;
 	}
 	@Column(name="NAME")
 	public String getName() {

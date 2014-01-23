@@ -15,12 +15,8 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!-- Root Context: defines shared resources visible to all other web components -->
-
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 	
-
-	<!-- Scans within the base package of the application for @Components to 
-		configure as beans -->
 	<context:component-scan base-package="com.capella.searchapp" />
 
 	<mvc:annotation-driven />
@@ -32,8 +28,6 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
-	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
-		
+	
 	<import resource="databaseContext.xml" />
 </beans>

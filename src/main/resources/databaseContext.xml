@@ -12,8 +12,7 @@
 
 	<jpa:repositories base-package="com.capella.searchapp.respositories" />
 	<tx:annotation-driven />
-	<bean id="entityManager"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	<bean id="entityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan" value="com.capella.searchapp.model" />
 		<property name="jpaVendorAdapter">
@@ -27,8 +26,7 @@
 		</property>
 	</bean>
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/contractors" />
 		<property name="username" value="root" />
