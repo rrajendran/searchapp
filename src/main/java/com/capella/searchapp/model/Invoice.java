@@ -1,4 +1,5 @@
 package com.capella.searchapp.model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,29 +8,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.codehaus.jackson.annotate.JsonManagedReference;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 @Entity
-@Table(name="INVOICE")
+@Table(name = "invoice")
 public class Invoice {
 	private long id;
-	@JsonManagedReference 
+	@JsonManagedReference
 	private Agency agency;
 	private DateTime fromDate;
 	private DateTime toDate;
 	private Double rate;
 	private Integer days;
 	private Double vat;
-	
+
 	public Invoice() {
 
 	}
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	public long getId() {
 		return id;
 	}
@@ -37,8 +41,9 @@ public class Invoice {
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	@ManyToOne
-	@JoinColumn(name="AGENCY_ID")
+	@JoinColumn(name = "agency_id")
 	public Agency getAgency() {
 		return agency;
 	}
@@ -46,47 +51,58 @@ public class Invoice {
 	public void setAgency(Agency agency) {
 		this.agency = agency;
 	}
-	@Column(name="FROM_DATE")
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+
+	@Column(name = "from_date")
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+	@Temporal(TemporalType.TIMESTAMP)
 	public DateTime getFromDate() {
 		return fromDate;
 	}
+
 	public void setFromDate(DateTime fromDate) {
 		this.fromDate = fromDate;
 	}
-	@Column(name="TO_DATE")
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+
+	@Column(name = "to_date")
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	public DateTime getToDate() {
 		return toDate;
 	}
+
 	public void setToDate(DateTime toDate) {
 		this.toDate = toDate;
 	}
-	@Column(name="RATE")
+
+	@Column(name = "rate")
 	public Double getRate() {
 		return rate;
 	}
+
 	public void setRate(Double rate) {
 		this.rate = rate;
 	}
-	@Column(name="DAYS")
+
+	@Column(name = "days")
 	public Integer getDays() {
 		return days;
 	}
+
 	public void setDays(Integer days) {
 		this.days = days;
 	}
-	@Column(name="VAT")
+
+	@Column(name = "vat")
 	public Double getVat() {
 		return vat;
 	}
+
 	public void setVat(Double vat) {
 		this.vat = vat;
 	}
+
 	@Override
 	public String toString() {
-		return "Invoice [id=" + id + ", agency=" + agency + ", fromDate="
-				+ fromDate + ", toDate=" + toDate + ", rate=" + rate
-				+ ", days=" + days + "]";
+		return "Invoice [id=" + id + ", agency=" + agency + ", fromDate=" + fromDate + ", toDate=" + toDate + ", rate=" + rate + ", days=" + days
+				+ "]";
 	}
 }

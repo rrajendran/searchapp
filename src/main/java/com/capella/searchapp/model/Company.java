@@ -1,27 +1,77 @@
 package com.capella.searchapp.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
+
+@Entity
+@Table(name = "company")
 public class Company {
-	private long id;
-	private String name;
-	public Company(long id, String name) {
-		this.id = id;
-		this.name = name;
+	private String companyNo;
+	private String companyName;
+	private Address address;
+	private DateTime incorporationDate;
+	private Vat vat;
+
+	@Id
+	@Column(name = "company_no")
+	public String getCompanyNo() {
+		return companyNo;
 	}
-	public long getId() {
-		return id;
+
+	public void setCompanyNo(String companyNo) {
+		this.companyNo = companyNo;
 	}
-	public void setId(long id) {
-		this.id = id;
+
+	@Column(name = "company_name")
+	public String getCompanyName() {
+		return companyName;
 	}
-	public String getName() {
-		return name;
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	@Embedded
+	public Address getAddress() {
+		return address;
 	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	@Column(name = "incorporation_date")
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+	public DateTime getIncorporationDate() {
+		return incorporationDate;
+	}
+
+	public void setIncorporationDate(DateTime incorporationDate) {
+		this.incorporationDate = incorporationDate;
+	}
+
+	@OneToOne(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	public Vat getVat() {
+		return vat;
+	}
+
+	public void setVat(Vat vat) {
+		this.vat = vat;
+	}
+
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", name=" + name + "]";
+		return "Company [companyNo=" + companyNo + ", companyName=" + companyName + ", address=" + address + ", incorporationDate="
+				+ incorporationDate + ", vat=" + vat + "]";
 	}
-	
+
 }

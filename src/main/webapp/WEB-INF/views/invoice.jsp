@@ -4,34 +4,41 @@
 <!doctype html>
 <html>
 <head>
-<link rel='stylesheet' type='text/css' href='resources/css/menu.css' />
+<link rel='stylesheet' type='text/css' href='/searchapp/resources/css/menu.css' />
+<link rel='stylesheet' type='text/css' href='/searchapp/resources/css/login.css' />
 <link rel='stylesheet' type='text/css'
-	href='resources/css/jquery.dataTables_themeroller.css' />
+	href='/searchapp/resources/css/jquery.dataTables_themeroller.css' />
 <link rel='stylesheet' type='text/css'
-	href='resources/css/jquery.dataTables.css' />
+	href='/searchapp/resources/css/jquery.dataTables.css' />
 <link href='http://fonts.googleapis.com/css?family=Abril+Fatface'
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Exo+2'
 	rel='stylesheet' type='text/css'>
 <script  type="text/javascript"  src="http://yui.yahooapis.com/3.6.0/build/yui/yui.js"></script>
 <script  type="text/javascript"  src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-<script type="text/javascript" src="resources/scripts/jquery.dataTables.js"></script>
-<script  type="text/javascript"  src="resources/scripts/script.js"></script>
-<script  type="text/javascript"  src="resources/scripts/invoice.js"></script>
+<script type="text/javascript" src="/searchapp/resources/scripts/jquery.dataTables.js"></script>
+<script  type="text/javascript"  src="/searchapp/resources/scripts/script.js"></script>
+<script  type="text/javascript"  src="/searchapp/resources/scripts/invoice.js"></script>
 </head>
 <body class="yui3-skin-sam">
 	<div id='cssmenu'>
 		<ul>
-			<li ><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/home'><span>Contracts</span></a></li>
-			<li ><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/agents'><span>Agents</span></a></li>
-			<li  class='active'><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/invoice'><span>Invoice</span></a></li>
-			<li><a href='<c:out value="${pageContext.request.contextPath}"/>/spring/expenses'><span>Expense</span></a></li>
+			<li><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/company/home'><span>Company</span></a></li>
+			<li><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/contracts/home'><span>Contracts</span></a></li>
+			<li><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/agency/home'><span>Agency</span></a></li>
+			<li class='active'><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/invoice/home'><span>Invoice</span></a></li>
+			<li><a
+				href='<c:out value="${pageContext.request.contextPath}"/>/expenses/home'><span>Expense</span></a></li>
 			<li class='last'><a href='#'><span>Contact</span></a></li>
 		</ul>
 	</div>
 	<div id="page">
 		<div style="clear: left;width:30%;float:left">
-			<form:form method="POST" commandName="invoice" action="/searchapp/spring/invoice/save">
+			<form:form method="POST" commandName="invoice" action="/searchapp/invoice/save">
 				<table class="tableclass">
 					<tr>
 						<td><form:label path="agency.name">Agency Name</form:label></td>
@@ -46,7 +53,7 @@
 					</tr>
 					<tr>
 						<td><form:label path="fromDate">From Date</form:label></td>
-						<td><form:input path="fromDate" /></td>
+						<td><form:input path="fromDate"/></td>
 					</tr>
 					<tr>
 						<td><form:label path="toDate">To Date</form:label></td>

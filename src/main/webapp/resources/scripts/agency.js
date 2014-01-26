@@ -4,11 +4,31 @@ YUI().use( "datasource-io", "datasource-jsonschema", "datatable-base", "datatabl
             { key: "id",  label: "id"  }, 
             { key: "name", label: 'Name'  },
             { key: "emailId",  label: "EmailId"  },
-            { key: "address1",  label: "address1"  }, 
-            { key: "address2",  label: "address2"  }, 
-            { key: "city",  label: "city"  }, 
-            { key: "town",  label: "town"  }, 
-            { key: "country",  label: "country"  }, 
+            {
+                key: 'address',
+                locator: "address.address1",
+                label: "Address 1"
+            },
+            {
+                key: 'address',
+                locator: "address.address2",
+                label: "Address 2"
+            },
+            {
+                key: 'address',
+                locator: "address.city",
+                label: "City"
+            },
+            {
+                key: 'address',
+                locator: "address.town",
+                label: "Town"
+            },
+            {
+                key: 'address',
+                locator: "address.country",
+                label: "Country"
+            },
             { key: "mobile",  label: "mobile"  }, 
             { key: "telephone",  label: "telephone"  }
         ];
@@ -21,12 +41,26 @@ YUI().use( "datasource-io", "datasource-jsonschema", "datatable-base", "datatabl
             	 resultFields: [
 	                "id",
 	                "name",
-	                "address1",
-	                "address2",
-	                "city",
-	                "town",
-	                "country",
-	                "postCode",
+	                {
+	                    key: 'address',
+	                    locator: "address.address1"
+	                },
+	                {
+	                    key: 'address',
+	                    locator: "address.address2" 
+	                },
+	                {
+	                    key: 'address',
+	                    locator: "address.city" 
+	                },
+	                {
+	                    key: 'address',
+	                    locator: "address.town" 
+	                },
+	                {
+	                    key: 'address',
+	                    locator: "address.country"
+	                },
 	                "mobile",
 	                "telephone",
 	                "emailId"

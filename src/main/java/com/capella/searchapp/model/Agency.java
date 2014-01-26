@@ -1,28 +1,26 @@
 package com.capella.searchapp.model;
+
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
+@Table(name = "agency")
 public class Agency {
 	private long id;
 	@JsonBackReference
 	private List<Invoice> invoices;
 	private String name;
-	private String address1;
-	private String address2;
-	private String city;
-	private String town;
-	private String country;
-	private String postCode;
+	private Address address;
 	private String mobile;
 	private String telephone;
 	private String emailId;
@@ -30,9 +28,10 @@ public class Agency {
 	public Agency() {
 
 	}
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	public long getId() {
 		return id;
 	}
@@ -41,14 +40,16 @@ public class Agency {
 		this.id = id;
 	}
 
-	@OneToMany( mappedBy="agency")
+	@OneToMany(mappedBy = "agency")
 	public List<Invoice> getInvoices() {
 		return invoices;
 	}
+
 	public void setInvoices(List<Invoice> invoices) {
 		this.invoices = invoices;
 	}
-	@Column(name="NAME")
+
+	@Column(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -56,55 +57,17 @@ public class Agency {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Column(name="ADDRESS1")
-	public String getAddress1() {
-		return address1;
+
+	@Embedded
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddress1(String address1) {
-		this.address1 = address1;
-	}
-	@Column(name="ADDRESS2")
-	public String getAddress2() {
-		return address2;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
-	public void setAddress2(String address2) {
-		this.address2 = address2;
-	}
-	@Column(name="CITY")
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-	@Column(name="TOWN")
-	public String getTown() {
-		return town;
-	}
-
-	public void setTown(String town) {
-		this.town = town;
-	}
-	@Column(name="COUNTRY")
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	@Column(name="POST_CODE")
-	public String getPostCode() {
-		return postCode;
-	}
-
-	public void setPostCode(String postCode) {
-		this.postCode = postCode;
-	}
-	@Column(name="MOBILE")
+	@Column(name = "mobile")
 	public String getMobile() {
 		return mobile;
 	}
@@ -112,7 +75,8 @@ public class Agency {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	@Column(name="TELEPHONE")
+
+	@Column(name = "telephone")
 	public String getTelephone() {
 		return telephone;
 	}
@@ -120,7 +84,8 @@ public class Agency {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	@Column(name="EMAIL_ID")
+
+	@Column(name = "email_id")
 	public String getEmailId() {
 		return emailId;
 	}
@@ -131,13 +96,8 @@ public class Agency {
 
 	@Override
 	public String toString() {
-		return "Agency [id=" + id + ", name=" + name + ", address1=" + address1
-				+ ", address2=" + address2 + ", city=" + city + ", town="
-				+ town + ", country=" + country + ", postCode=" + postCode
-				+ ", mobile=" + mobile + ", telephone=" + telephone
-				+ ", emailId=" + emailId + "]";
+		return "Agency [id=" + id + ", invoices=" + invoices + ", name=" + name + ", address=" + address + ", mobile=" + mobile + ", telephone="
+				+ telephone + ", emailId=" + emailId + "]";
 	}
-
-
 
 }
