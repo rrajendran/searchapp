@@ -1,5 +1,6 @@
 package com.capella.searchapp.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,7 +43,7 @@ public class Invoice {
 		this.id = id;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "agency_id")
 	public Agency getAgency() {
 		return agency;

@@ -36,10 +36,11 @@
 			<li class='last'><a href='#'><span>Contact</span></a></li>
 		</ul>
 	</div>
-	<div id="page">
-		<div style="clear: left;width:30%;float:left">
-			<form:form method="POST" commandName="invoice" action="/searchapp/invoice/save">
-				<table class="tableclass">
+	<div id="invoiceSection" class="section">
+		<form:form method="POST" commandName="invoice" action="/searchapp/invoice/save">
+			<h2>invoice</h2>
+			<fieldset style="padding:10px">
+			<table id="tableClass">
 					<tr>
 						<td><form:label path="agency.name">Agency Name</form:label></td>
 						<td>
@@ -53,7 +54,7 @@
 					</tr>
 					<tr>
 						<td><form:label path="fromDate">From Date</form:label></td>
-						<td><form:input path="fromDate"/></td>
+						<td><form:input path="fromDate" autocomplete="disabled"/><div id="showcal" style="display:none;position:absolute"></div></td>
 					</tr>
 					<tr>
 						<td><form:label path="toDate">To Date</form:label></td>

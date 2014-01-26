@@ -93,8 +93,10 @@ table{
 	font-size: 25px;
 	font-weight: bold;
 }
-label{
+
+body label{
 	font-family: 'Exo 2', sans-serif;
+	
 }
 input , select, radio, option, textarea{
 	font-family: 'Exo 2', sans-serif;

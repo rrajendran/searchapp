@@ -52,7 +52,7 @@
 						<td><form:input path="companyNo" disabled="true"/></td>
 					</tr>
 					<tr>
-						<td><form:label path="companyName">CompanyName</form:label></td>
+						<td><form:label path="companyName">Company Name</form:label></td>
 						<td><form:input style="width:18em"  path="companyName" /></td>
 					</tr>
 					<tr>

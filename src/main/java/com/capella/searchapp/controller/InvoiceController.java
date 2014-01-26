@@ -48,7 +48,7 @@ public class InvoiceController {
 	@RequestMapping(value = "/invoice/save", method = RequestMethod.POST)
 	public String agencySave(@ModelAttribute Invoice invoice) {
 		invoiceRepository.save(invoice);
-		return "redirect:/invoice";
+		return "redirect:/invoice/home";
 	}
 
 	@RequestMapping(value = "/invoice/listInvoice", method = RequestMethod.GET)
